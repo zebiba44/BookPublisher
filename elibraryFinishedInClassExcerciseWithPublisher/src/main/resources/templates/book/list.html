@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+</head>
+<body>
+    <div style="width: 100%;">
+        <div>
+            <h1>List of Books</h1>
+           <a href="/">Home</a> || <a th:href="@{/book/new}">Add New Book</a><br><br>
+        </div>
+
+        <div>
+            <table border="1" cellpadding="8" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>ISBN</th>
+                        <th>Title</th>
+                        <th>Date Published</th>
+                        <th>Overdue Fee</th>
+                        <th>Publisher ID</th>
+                    </tr>
+                </thead>
+                <!-- Looping-->
+                <tbody>
+                    <tr th:each="book,c : ${book}">
+                        <th th:text="${c.count}+${'.'}"></th>
+                        <td th:text="${book.isbn}"></td>
+                        <td th:text="${book.title}"></td>
+                        <td th:text="${book.datePublished}"></td>
+                        <td th:text="${book.overdueFee}"></td>
+                        <td th:text="${book.publisher.publisherId}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

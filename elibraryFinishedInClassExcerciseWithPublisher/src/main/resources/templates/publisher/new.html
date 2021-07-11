@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form to Add New PUBLISHER </title>
+    <style>
+        div.form-control {
+            padding-bottom: 1em;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div><a href="/">Home</a> | <a href="/book/list">Books</a></div>
+    <h1>New PUBLISHER Form</h1>
+    <form action="/publisher/new" method="post" th:object="${publisher}">
+        <div class="form-control">
+            <div><label for="name">Name</label></div>
+            <div><input id="name" name="name" th:value="${publisher.name}" type="text"></div>
+        </div>
+        <div class="form-control">
+            <div><label for="phoneNumber">PhoneNumber</label></div>
+            <div><input id="phoneNumber" name="phoneNumber" th:value="${publisher.phoneNumber}" type="text"></div>
+        </div>
+        <div class="form-control">
+            <div><label for="email">E-mail</label></div>
+            <div><input id="email" name="email" th:value="${publisher.email}" type="text"></div>
+        </div>
+        <br/>
+        <div>
+            <button id="btnSave" type="submit">Save Book</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
